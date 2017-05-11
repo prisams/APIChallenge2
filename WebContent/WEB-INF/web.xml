@@ -14,7 +14,7 @@
     <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
     <init-param>
       <param-name>com.sun.jersey.config.property.packages</param-name>
-      <param-value>com.apichallenge</param-value>
+      <param-value>com.apichallenge;com.wordnik.swagger.jersey.listing;com.wordnik.swagger.jaxrs.json</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -22,24 +22,6 @@
     <servlet-name>JAVA WS</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
-  
-     <servlet>
-        <servlet-name>jersey</servlet-name>
-        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>
-                com.wordnik.swagger.jaxrs.json,
-		com.wordnik.swagger.jersey.listing,
-                com.apichallenge
-            </param-value>
-        </init-param>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>jersey</servlet-name>
-        <url-pattern>/apidocs/*</url-pattern>
-    </servlet-mapping>
     
     <servlet>
         <servlet-name>Jersey2Config</servlet-name>
@@ -50,7 +32,7 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>http://localhost:8080/ApiChallengeSwagger/apidocs
+            <param-value>http://localhost:8080/ApiChallenge
             </param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
