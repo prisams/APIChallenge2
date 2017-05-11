@@ -19,8 +19,10 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-@Api(value = "api", description = "Endpoint for api challenge")
-@Path("api")
+
+
+@Api(value="restAPIs", description="Project to design REST APIs")
+@Path("restAPIs")
 public class API {
 
 	private static final Logger LOG = Logger.getLogger(API.class.getName());
@@ -41,17 +43,17 @@ public class API {
 	public String testConnection(){
 		return "Pinged!";
 	}
-	
+		
 	/**
 	 * Method to return a random word from the set of words given as input separated by space
 	 * @param inputString
 	 * @return random word from the set of words
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/getRandomWord/{words}")
+	@Produces(MediaType.TEXT_PLAIN)
 	@ApiOperation(value = "This method returns a random word from a set of words")
-	public String getRandomWord( @ApiParam(value="",required=true)@QueryParam("words") String inputString){
+	public String getRandomWord( @ApiParam(value="words",required=true)@QueryParam("words") String inputString){
 		LOG.info("Incoming input:" + inputString);
 		Random random = new Random();
 		ArrayList<String> setOfWords = new ArrayList<String>();
@@ -70,9 +72,10 @@ public class API {
 	 * @return rhyming words
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/getRhymingWords/{word}")
-	public String getRhymingWords( @PathParam ("word") String word){
+	@Produces(MediaType.TEXT_PLAIN)
+	@ApiOperation(value = "This method returns the rhyming words from CMU dict")
+	public String getRhymingWords( @ApiParam(value="word", required=true)@PathParam ("word") String word){
 		ApplicationConfig config = new ApplicationConfig();
 		LOG.info("Incoming input:" + word);
 		Process process = null;
@@ -101,9 +104,10 @@ public class API {
 	 * @return message if the speed is reckless or not
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/isReckless/{speed}")
-	public String isReckless(@PathParam ("speed") String speed){
+	@Produces(MediaType.TEXT_PLAIN)
+	@ApiOperation(value = "This method determines if you are driving at a reckless speed")
+	public String isReckless(@ApiParam(value="speed", required=true)@PathParam ("speed") String speed){
 		ApplicationConfig config = new ApplicationConfig();
 		LOG.info("Incoming speed:" + speed);
 		String output = OP_MSG_FOR_SPEED_CHECK_DEFAULT;
