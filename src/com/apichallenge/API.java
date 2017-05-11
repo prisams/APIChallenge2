@@ -81,7 +81,11 @@ public class API {
 			process = Runtime.getRuntime().exec(config.getPythonScriptNameForRhymingWord() + word);
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(process.getInputStream()));
-			output = reader.readLine();
+			
+			String temp="";
+			while((temp=reader.readLine())!=null){
+				output=temp;
+			}
 			reader.close();
 		}
 		catch(Exception e){
@@ -103,11 +107,11 @@ public class API {
 		ApplicationConfig config = new ApplicationConfig();
 		LOG.info("Incoming speed:" + speed);
 		String output = OP_MSG_FOR_SPEED_CHECK_DEFAULT;
-		int inputSpeed=0;
+		double inputSpeed=0.0;
 		Process process = null;
 		double threshold = 0;
 		try {
-			inputSpeed = Integer.parseInt(speed);
+			inputSpeed = Double.parseDouble(speed);
 			process = Runtime.getRuntime().exec(config.getPythonScriptNameForSpeed());
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(process.getInputStream()));
