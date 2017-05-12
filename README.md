@@ -32,7 +32,7 @@ Below are the required softwares:
 2. Apache Tomcat 8
 3. Python 2.7 or higher
 4. Pip
-5. pronouncing model to work with CMU dictionary
+5. pronouncing module to work with CMU dictionary
 6. Maven
         
 ### Installing the softwares on Ubuntu 16.04
@@ -90,7 +90,7 @@ To deploy the project run the script env_setup_scripts/install_project.sh in the
 All the above steps have been put together in the script named install_project.sh
 
 ## To access the API DOCs
-http://localhost:8080/swagger
+http://localhost:8080/swagger and click on restAPIs
 
 ## URLs to the APIs
 * To test the connection: http://localhost:8080/ApiChallenge/restAPIs/testConnection
