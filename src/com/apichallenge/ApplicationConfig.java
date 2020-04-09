@@ -27,7 +27,7 @@ public class ApplicationConfig {
 			File f = new File(home+"/settings.properties");
 			InputStream input = new FileInputStream(f);
 			props.load(input);
-		} 
+		}
 		catch (IOException e) {
 			LOG.log(Level.SEVERE, "Exception thrown", e);
 		}
@@ -37,7 +37,7 @@ public class ApplicationConfig {
 	 * @return
 	 */
 	public String getPythonexepath() {
-		return props.getProperty("pythonexe") + " ";	
+		return props.getProperty("pythonexe") + " ";
 	}
 
 	/**
@@ -45,18 +45,18 @@ public class ApplicationConfig {
 	 * @return script path
 	 */
 	public String getPythonScriptNameForRhymingWord(){
-		return getPythonexepath()+ 
+		return getPythonexepath()+
 				props.getProperty("pythonscriptrhyme") + " ";
 	}
 
 	/**
-	 * Method to return the Script that runs the dataModel to determine  the threshold 
+	 * Method to return the Script that runs the dataModel to determine  the threshold
 	 * of reckless speed
 	 * @return script path
 	 */
 	public String getPythonScriptNameForSpeed(){
 		return getPythonexepath() +
-				props.getProperty("pythonscriptthreshold") + " " + 
+				props.getProperty("pythonscriptthreshold") + " " +
 				getFileNameToCreateSpeedModel();
 	}
 
@@ -65,6 +65,7 @@ public class ApplicationConfig {
 	 * @return Data file path
 	 */
 	public String getFileNameToCreateSpeedModel(){
+                System.out.println("Adding a print statement");
 		return props.getProperty("datafile");
 	}
 }
