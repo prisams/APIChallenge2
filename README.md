@@ -100,3 +100,5 @@ http://localhost:8080/swagger and click on restAPIs
 
 ## To perform automated tests on the Api
 Run the script ApiChallenge/testrun.sh
+
+#### End of the README
